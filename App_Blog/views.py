@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from django.views.generic import CreateView, UpdateView, ListView, DetailView, View, TemplateView, DeleteView
+from App_Blog.models import Blog, Comment, Likes
+from django.urls import reverse, reverse_lazy
 
 # Create your views here.
 
