@@ -51,13 +51,15 @@ def profile(request):
 @login_required
 def user_change(request):
     current_user = request.user
+    changed = False
     form = UserProfileChange(instance=current_user)
     if request.method == 'POST':
         form = UserProfileChange(request.POST, instance=current_user)
         if form.is_valid():
             form.save()
+            changed = True
             form = UserProfileChange(instance=current_user)
-    return render(request, 'App_Login/change_profile.html', context={'form':form})
+    return render(request, 'App_Login/change_profile.html', context={'form':form, 'changed':changed})
 
 
 @login_required

@@ -14,9 +14,10 @@
   <div class="col-sm-8">
     <p>{{ blog.blog_content|range_filter|linebreaks }}<a href="{% url 'App_Blog:blog_details' slug=blog.slug %}">Read More</a></p>
     <h6>Posted By: <a href="#">@{{ blog.author }}</a></h6>
+    <br><h6 class="text-primary">{{blog.liked_blog.count}} Likes | {{blog.blog_comment.count}} Comments</h6>
   </div>
 </div>
-<hr>
+<hr style="border: 10px solid teal; border-radius: 5px;">
 {% endfor %}
 
 {% endblock %}
